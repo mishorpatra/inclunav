@@ -1,0 +1,976 @@
+Common
+C1. TBD
+Modules
+M1. Indoor Navigation
+M1.1 GlobalView Component 
+Files GlobalView.js
+File Types JS
+
+
+M1.1.2 ComponentDidMount()
+
+
+M1.1.3 getVenueList(e)
+
+
+Method Name handleSubmit
+Method Type HTTP POST
+Description 
+Sends email and password from UI input fields to https://inclunav.apps.iitd.ac.in/node/wayfinding/v1/venue-list
+
+M1.1.4 selectedVenue()
+
+
+Method Name selectedVenue
+Description 
+select Venue
+
+M1.1.5 getBuildingList(venueName)
+
+
+Method Name handleSubmit
+Method Type HTTP GET
+Parameter venueName
+Description 
+Sends email and password from UI input fields to https://inclunav.apps.iitd.ac.in/node/wayfinding/v1/building-list
+
+
+M1.1.6 sourceLabel(option)
+
+
+Method Name sourceLabel
+Parameter option
+Description 
+label for typeahead
+
+M1.1.7 renderSourceMenu(option)
+
+
+Method Name renderSourceMenu
+Parameter option
+Description 
+UI for menu of typeahead
+
+M1.1.8 setNavigation(option)
+
+
+Method Name setNavigation
+Parameter option
+Description 
+UI for menu of typeahead
+
+M1.1.9 multiBldNav()
+
+
+Method Name multiBldNav
+Description 
+Building to building navigation
+
+
+M1.1.9 fltrNvgnData()
+
+
+Method Name fltrNvgnData
+Description 
+Filter Landmark
+
+Method Name getBuildingList
+Description 
+get
+
+
+M1.2 Registration
+Files Registration.js
+File Types JS
+M1.2.1 handleSubmit(e)
+
+
+Method Name handleSubmit
+Method Type HTTP POST
+Parameter Name e
+Parameter Type event
+Description 
+Sends firstname,lastname,email,companyname and password from UI input fields to https://inclunav.apps.iitd.ac.in/node/wayfinding/v1/register
+
+
+M1.2.2 checkPasswordLength(password)
+
+
+Method Name checkPasswordLength
+Parameter Name password
+Description 
+Check for length of input
+
+
+M1.2.3 checkSpecialCharacter(password)
+
+
+Method Name checkSpecialCharacter
+Parameter Name password
+Description 
+Check for special character
+
+
+M1.2.4 checkUpperCase(password)
+
+
+Method Name checkUpperCase
+Parameter Name password
+Description 
+Check for upper case
+
+
+M1.2.5 checkNumber(password)
+
+
+Method Name checkNumber
+Parameter Name password
+Description 
+Check for numeric input
+
+
+M1.2.6 handlePasswordChange(password)
+
+
+Method Name handlePasswordChange
+Parameter Name password
+Description 
+Update password value on password input change
+
+
+M1.2.7 handleConfirmPasswordChange(password)
+
+
+Method Name handlePasswordChange
+Parameter Name password
+Description 
+Update password value on password input change
+
+
+M1.2.8 comparePassword(password)
+
+
+Method Name comparePassword
+Parameter Name password
+Description 
+Compare password field input with confirm password input field
+
+
+M1.2.9 clearAll()
+
+
+Method Name clearAll
+Description 
+Reset state value
+
+
+
+
+M1.3 Forgot Password
+Files ForgotPassword.js
+File Types JS
+
+
+M1.3.1 ComponentDidMount()
+
+
+M1.3.2 handleChange(e)
+
+
+Method Name handleChange
+Parameter Name e
+Parameter Type event
+Description  Update email input field in UI
+
+
+M1.3.3 handleSubmit(e)
+
+
+Method Name handleChange
+Parameter Name e
+Parameter Type event
+Description  
+Sends email from UI input fields to https://inclunav.apps.iitd.ac.in/node/wayfinding/v1/forgot-password
+M1.4 Reset Password
+Files ResetPassword.js
+File Types JS
+
+
+M1.4.1 ComponentDidMount()
+
+
+M1.4.2 handleSubmit(e)
+
+
+Method Name handleSubmit
+Method Type HTTP POST
+Parameter Name e
+Parameter Type event
+Description 
+Sends firstname,lastname,email,companyname and password from UI input fields to https://inclunav.apps.iitd.ac.in/node/wayfinding/v1/reset-password
+
+
+M1.4.3 checkPasswordLength(password)
+
+
+Method Name checkPasswordLength
+Parameter Name password
+Description 
+Check for length of input
+
+
+M1.4.4 checkSpecialCharacter(password)
+
+
+Method Name checkSpecialCharacter
+Parameter Name password
+Description 
+Check for special character
+
+
+M1.4.5 checkUpperCase(password)
+
+
+Method Name checkUpperCase
+Parameter Name password
+Description 
+Check for upper case
+
+
+M1.4.6 checkNumber(password)
+
+
+Method Name checkNumber
+Parameter Name password
+Description 
+Check for numeric input
+
+
+
+
+
+
+M1.4.7 comparePassword(password)
+
+
+Method Name comparePassword
+Parameter Name password
+Description 
+Compare password field input with confirm password input field
+
+
+M1.4.8 handlePasswordChange(password)
+
+
+Method Name handlePasswordChange
+Parameter Name password
+Description 
+Update password value on password input change
+
+
+M1.4.9 validatePassword(password)
+
+
+Method Name validatePassword
+Parameter Name password
+Description 
+Validation for password
+
+
+M1.4.10 handleConfirmPasswordChange(password)
+
+
+Method Name handlePasswordChange
+Parameter Name password
+Description 
+Update password value on password input change
+
+
+
+
+
+
+M2. Venue
+M2.1 AddVenue Component 
+Files AddVenue.js
+File Types JS
+
+
+M2.1.1 ComponentDidMount()
+
+
+M2.1.2 authUser(id,token)
+
+
+Method Name authUser
+Method Type HTTP POST
+Parameter Name id,token
+Description 
+Sends id and token to https://inclunav.apps.iitd.ac.in/node/wayfinding/v1/api-auth to authenticate user
+
+
+M2.1.3 handleEmail(email,mode)
+
+
+Method Name handleEmail
+Parameter Name email,mode
+Description 
+Update email and mode
+
+
+M2.1.4 handleLeafletSearch()
+
+
+Method Name handleLeafletSearch
+Description 
+Search on OSM
+ 
+M2.1.5 openModal()
+
+
+Method Name openModal
+Description 
+Open modal window
+
+
+M2.1.6 closeModal()
+
+
+Method Name closeModal
+Description 
+Close modal window
+
+
+M2.1.7 handleVenueName()
+
+
+Method Name handleVenueName
+Description 
+Update venue name
+Parameter Name e
+Parameter Type event
+
+
+M2.1.8 handleVenueType()
+
+
+Method Name handleVenueType
+Description 
+Update venue type
+Parameter Name e
+Parameter Type event
+
+
+M2.1.9 handleSubmit(e)
+
+
+Method Name handleSubmit
+Method Type HTTP POST
+Parameter Name e
+Parameter Type event
+Description 
+Sends userId,venueName,type,organization,address and coordinates from UI input fields to https://inclunav.apps.iitd.ac.in/node/wayfinding/v1/create-venue
+
+
+M2.1.10 handleClick(e)
+
+
+Method Name handleClick
+Description 
+Update building coordinates
+Parameter Name e
+Parameter Type event
+
+
+M2.1.11 handleAddress(e)
+
+
+Method Name handleAddress
+Description 
+Save building address
+Parameter Name e
+
+
+M2.2 VenueList Component 
+Files VenueList.js
+File Types JS
+
+
+M2.2.1 ComponentDidMount()
+
+
+M2.2.2 authUser(id,token)
+
+
+Method Name authUser
+Method Type HTTP POST
+Parameter Name id,token
+Description 
+Sends id and token to https://inclunav.apps.iitd.ac.in/node/wayfinding/v1/api-auth to authenticate user
+
+
+M2.2.3 handleWindowClick()
+
+
+Method Name handleWindowClick
+Description 
+Monitor click action on window
+
+
+M2.2.4 getVenueList()
+
+
+Method Name getVenueList
+Method Type HTTP POST
+Parameter Name id,token
+Description 
+Sends id and token to https://inclunav.apps.iitd.ac.in/node/wayfinding/v1/venue-list to get venue list 
+
+
+M2.2.5 routeBuilding(venue)
+
+
+Method Name routeBuilding
+Parameter Name venue
+Description 
+Route to building list component
+
+
+M2.2.6 hideModal()
+
+
+Method Name hideModal
+Description 
+Hide modal
+
+
+M2.2.7 showModal()
+
+
+Method Name showModal
+Description 
+Show modal
+
+
+M2.2.8 deleteVenue(venue)
+
+
+Method Name deleteVenue
+Method Type HTTP POST
+Parameter Name venue
+Description 
+Sends venue name to https://inclunav.apps.iitd.ac.in/node/wayfinding/v1/delete-venue to delete venue  
+
+
+M2.2.9 updateProfile()
+
+
+Method Name updateProfile
+Method Type HTTP POST
+Description 
+Sends firstname,lastname,companyName,email and id  to https://inclunav.apps.iitd.ac.in/node/wayfinding/v1/update-profile to update user profile 
+
+
+M2.2.10 resetPass()
+
+
+Method Name resetPass
+Description 
+Route to reset password
+
+
+M2.2.11 goLive()
+
+
+Method Name goLive
+Method Type HTTP POST
+Parameter Name venue,liveStatus
+Description 
+Sends venue,liveStatus to https://inclunav.apps.iitd.ac.in/node/wayfinding/v1/venue-live to make venue live
+
+
+
+
+M2.3 EditVenue Component 
+Files EditVenue.js
+File Types JS
+
+
+M2.3.1 ComponentDidMount()
+
+
+M2.3.2 authUser(id,token)
+
+
+Method Name authUser
+Method Type HTTP POST
+Parameter Name id,token
+Description 
+Sends id and token to https://inclunav.apps.iitd.ac.in/node/wayfinding/v1/api-auth to authenticate user
+
+
+M2.3.3 handleLeafletSearch()
+
+
+Method Name handleLeafletSearch
+Description 
+Search on OpenStreetMap
+
+
+M2.3.4 getVenueDetails(venueName,token)
+
+
+Method Name getVenueDetails
+Method Type HTTP POST
+Parameter Name venueName,token
+Description 
+Sends id and token to https://inclunav.apps.iitd.ac.in/node/wayfinding/v1/building-list to get building list 
+
+
+M2.3.5 handleVenueName(e)
+
+
+Method Name handleVenueName
+Parameter Name e
+Parameter Type event
+Description 
+Update Venue Name
+
+
+M2.3.6 handleVenueType(e)
+
+
+Method Name handleVenueType
+Parameter Name e
+Parameter Type event
+Description 
+Update Venue Name
+
+
+M2.3.7 handleSubmit(e)
+
+
+Method Name handleSubmit
+Method Type HTTP POST
+Parameter Name e
+Parameter Type event
+Description 
+Sends venueName,newVenueName,type,organization,address,coordinates,token to https://inclunav.apps.iitd.ac.in/node/wayfinding/v1/edit-venue
+
+
+M2.3.8 handleClick(e)
+
+
+Method Name handleClick
+Parameter Name e
+Parameter Type event
+Description 
+Save venue coordinates that is latitude and longitude
+
+
+M2.3.8 handleOrganization(e)
+
+
+Method Name handleOrganization
+Parameter Name e
+Parameter Type event
+Description 
+Save organization name
+
+
+M2.3.9 handleAddress(val)
+
+
+Method Name handleAddress
+Parameter Name val
+Description 
+Save venue address
+
+
+
+
+
+
+M3. Building
+M3.1 AddBuilding Component 
+Files AddBuilding.js
+File Types JS
+
+
+M3.1.1 ComponentDidMount()
+
+
+M3.1.2 authUser(id,token,venueName)
+
+
+Method Name authUser
+Method Type HTTP POST
+Parameter Name id,token,venueName
+Description 
+Sends id and token to https://inclunav.apps.iitd.ac.in/node/wayfinding/v1/api-auth to authenticate user
+
+
+M3.1.3 handleLeafletSearch()
+
+
+Method Name handleLeafletSearch
+Description 
+Search on OSM
+
+
+M3.1.4 getBuildingList(venueName,token,resp)
+
+
+Method Name handleLeafletSearch
+Parameter Name venueName,token,resp
+Description 
+Search on OSM
+
+
+M3.1.5 openModal()
+
+
+Method Name openModal
+Description 
+Open modal window
+
+
+M3.1.6 closeModal()
+
+
+Method Name closeModal
+Description 
+Close modal window
+
+
+M3.1.7 handleBuildingName()
+
+
+Method Name handleBuildingName
+Description 
+Update building name
+Parameter Name e
+Parameter Type event
+
+
+M3.1.8 handleBuildingOrientation()
+
+
+Method Name handleBuildingName
+Description 
+Update building orientation
+Parameter Name e
+Parameter Type event
+
+
+M3.1.9 handleType()
+
+
+Method Name handleType
+Description 
+Update building type
+Parameter Name e
+Parameter Type event
+
+
+M3.1.10 handleOrganization()
+
+
+Method Name handleOrganization
+Description 
+Update building organization
+Parameter Name e
+Parameter Type event
+
+
+M3.1.11 handleSubmit(e)
+
+
+Method Name handleSubmit
+Method Type HTTP POST
+Parameter Name e
+Parameter Type event
+Description 
+Sends userId,venueName,buildingName,type,organization,address and coordinates from UI input fields to https://inclunav.apps.iitd.ac.in/node/wayfinding/v1/create-building
+
+
+
+
+M3.1.12 handleEdit(e)
+
+
+Method Name handleEdit
+Method Type HTTP POST
+Parameter Name e
+Parameter Type event
+Description 
+Sends userId,venueName,buildingName,type,organization,address and coordinates from UI input fields to https://inclunav.apps.iitd.ac.in/node/wayfinding/v1/edit-building
+
+
+
+
+M3.1.13 handleClick(e)
+
+
+Method Name handleClick
+Parameter Name e
+Description 
+Get marker position
+
+
+
+
+M2.1.3 handleAddress(val)
+
+
+Method Name handleAddress
+Parameter Name val
+Description 
+Update address
+
+
+
+
+
+
+M3.2 BuildingList Component 
+Files BuildingList.js
+File Types JS
+
+
+M3.2.1 ComponentDidMount()
+
+
+M3.2.2 authUser(id,token)
+
+
+Method Name authUser
+Method Type HTTP POST
+Parameter Name id,token
+Description 
+Sends id and token to https://inclunav.apps.iitd.ac.in/node/wayfinding/v1/api-auth to authenticate user
+
+
+M3.2.3 getVenueList(id,token)
+
+
+Method Name getVenueList
+Method Type HTTP POST
+Parameter Name id,token
+Description 
+Sends id and token to https://inclunav.apps.iitd.ac.in/node/wayfinding/v1/venue-list to get venue list 
+
+
+M3.2.4 getBuildingList(venueName,token)
+
+
+Method Name getVenueList
+Method Type HTTP POST
+Parameter Name venueName,token
+Description 
+Sends venueName and token to https://inclunav.apps.iitd.ac.in/node/wayfinding/v1/building-list to get building list 
+
+
+
+
+M3.2.5 selectBuilding(name)
+
+
+Method Name selectBuilding
+Method Type HTTP POST
+Parameter Name name
+Description 
+Select building from building list
+
+
+
+
+M3.2.6 hideModal(bool)
+
+
+Method Name hideModal
+Parameter Name bool
+Description 
+Hide modal
+
+
+M3.2.7 delete(bname)
+
+
+Method Name delete
+Parameter Name bname
+Description 
+Delete building
+
+
+M3.2.8 hideDeleteModal(bool)
+
+
+Method Name delete
+Parameter Name bool
+Description 
+Hide modal
+
+
+M3.2.9 handleUpdate()
+
+
+Method Name handleUpdate
+Description 
+Update building list
+
+
+M3.2.10 goLive(venue,building,liveStatus)
+
+
+Method Name goLive
+Parameter Name venue,building,liveStatus
+Description 
+Make building live for indoor navigation
+
+
+M3.2.11 goToFloors(buildingName,venueName)
+
+
+Method Name goLive
+Parameter Name venue,building,liveStatus
+Description 
+Make building live for indoor navigation
+
+
+M3.2.12 hideModal()
+
+
+Method Name hideModal
+Description 
+Hide modal
+
+
+M3.2.13 showModal(building)
+
+
+Method Name showModal
+Parameter Name building
+Description 
+Show modal
+
+
+M3.2.14 deleteBuilding(building,venue)
+
+
+Method Name deleteVenue
+Method Type HTTP POST
+Parameter Name venue
+Description 
+Sends venue name to https://inclunav.apps.iitd.ac.in/node/wayfinding/v1/delete-venue to delete venue  
+
+
+
+
+M3.2.15 routeBuilding(venue)
+
+
+Method Name routeBuilding
+Parameter Name venue
+Description 
+Go to floor list component
+
+
+
+
+
+
+M3.3 EditBuilding Component 
+Files EditBuilding.js
+File Types JS
+
+
+M3.3.1 ComponentDidMount()
+
+
+M3.3.2 authUser(id,token)
+
+
+Method Name authUser
+Method Type HTTP POST
+Parameter Name id,token
+Description 
+Sends id and token to https://inclunav.apps.iitd.ac.in/node/wayfinding/v1/api-auth to authenticate user
+
+
+M3.3.3 handleLeafletSearch()
+
+
+Method Name handleLeafletSearch
+Description 
+Search on OpenStreetMap
+
+
+M3.3.4 getVenueDetails(venueName,token)
+
+
+Method Name getVenueDetails
+Method Type HTTP POST
+Parameter Name venueName,token
+Description 
+Sends id and token to https://inclunav.apps.iitd.ac.in/node/wayfinding/v1/building-list to get building list 
+
+
+M3.3.5 handleVenueName(e)
+
+
+Method Name handleVenueName
+Parameter Name e
+Parameter Type event
+Description 
+Update Venue Name
+
+
+M3.3.6 handleVenueType(e)
+
+
+Method Name handleVenueType
+Parameter Name e
+Parameter Type event
+Description 
+Update Venue Name
+
+
+M3.3.7 handleSubmit(e)
+
+
+Method Name handleSubmit
+Method Type HTTP POST
+Parameter Name e
+Parameter Type event
+Description 
+Sends venueName,newVenueName,type,organization,address,coordinates,token to https://inclunav.apps.iitd.ac.in/node/wayfinding/v1/edit-venue
+
+
+M3.3.8 handleClick(e)
+
+
+Method Name handleClick
+Parameter Name e
+Parameter Type event
+Description 
+Save venue coordinates that is latitude and longitude
+
+
+M3.3.8 handleOrganization(e)
+
+
+Method Name handleOrganization
+Parameter Name e
+Parameter Type event
+Description 
+Save organization name
+
+
+M3.3.9 handleAddress(val)
+
+
+Method Name handleAddress
+Parameter Name val
+Description 
+Save venue address
