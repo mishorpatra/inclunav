@@ -20,12 +20,13 @@ class UserLogin extends React.Component {
  * @author Pankaj Singh
  * @description  Initial Rendering
  */
-  componentDidMount() {
-    let id = localStorage.getItem("id");
-    if (id) {
+  /*componentDidMount() {
+    let token = localStorage.getItem("token");
+    console.log(token)
+    if (token) {
       this.props.history.push("/global-view");
     }
-  }
+  }*/
 /**
  * @id N1.1.2
  * @author Pankaj Singh
