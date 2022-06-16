@@ -3066,7 +3066,7 @@ class ColoredRect extends React.Component {
                         className="float-left mt-2 mr-2"
                         src="/inclunav/assets/images/profile.svg"
                         alt="user location"
-                        alt="current location"
+                        
                       />
                       <p className="strt-txt text-justify ">
                         {this.state.currentLocation}

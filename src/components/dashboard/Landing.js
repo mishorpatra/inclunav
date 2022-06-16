@@ -274,7 +274,7 @@ class Landing extends React.Component {
         ) : null}
         <div
           className="bg-dashboard container-fluid d-flex justify-content-center align-items-center h-95"
-          style={{ marginTop: "50px" }}
+         
         >
           <div className="text-white row ">
             <div className="col-lg-12 ">

@@ -75,9 +75,9 @@ import { connect } from "react-redux";
 
      render(){
          return (
-           <div className="bg-settings container-fluid ">
+           <div className="bg-settings container-fluid " style={{height: '100vh', overflow: 'hidden'}}>
              <div className="text-white row mt-5">
-               <div className="col-lg-12 text-center">
+               <div className="col-lg-12 text-center" style={{marginTop: 12}}>
                  <img
                    className="mt-1"
                    src="/inclunav/assets/images/navigation_settings_invert.svg"
@@ -85,11 +85,11 @@ import { connect } from "react-redux";
                  />
                </div>
              </div>
-             <div className="row w-100 m-0">
+             <div className="row w-100 m-0" style={{display: 'flex', justifyContent: 'space-around', alignItems: 'center'}}>
              <div className="text-white row ml-1 mb-1 mt-5">
-               <div className="col-12 ">Please select your language</div>
+               <p style={{fontSize: 'medium', textAlign: 'center', alignSelf: 'flex-start'}}>Please select your language</p>
              </div>
-               <div className="col-6">
+             <div style={{display: 'flex', justifyContent: 'space-around', alignItems: 'center', width: '100%'}}>
                  <button
                    className={this.state.language === "en"?"btn btn-language-setting btn-confirm-text mx-auto btn-block btn-default font-weight-bold h2":"btn btn-language-dark btn-cancel-text mx-auto btn-block btn-default font-weight-bold h2"}
                    onClick={() => {
@@ -102,16 +102,11 @@ import { connect } from "react-redux";
                         })
                       })
                    }}
-                   style={{
-                    width: "112px",
-                    height: "48px",
-                    float:"left",
-                   }}
+                   
                  >
                    ENGLISH
                  </button>
-               </div>
-               <div className="col-6">
+               
                  <button
                    className={this.state.language === "hi"?"btn btn-language-setting btn-confirm-text mx-auto btn-block btn-default font-weight-bold h2":"btn btn-language-dark btn-cancel-text mx-auto btn-block btn-default font-weight-bold h2"}
                   //  className="btn btn-language-dark btn-cancel-text mx-auto btn-block btn-default font-weight-bold h2"
@@ -126,14 +121,15 @@ import { connect } from "react-redux";
                      })
                    }}
                    style={{
-                    width: "112px",
-                    height: "48px",
-                    float:"right",
+                    textDecoration: 'none',
+                    position: 'relative',
+                    top: -4
                    }}
                  >
                    Hindi
                  </button>
-               </div>
+                 </div>
+               
              </div>
              <div className="row w-100 m-0">
              <div className="text-white row ml-1 mb-1 mt-5">
@@ -350,7 +346,7 @@ import { connect } from "react-redux";
              </div>
 
 
-             <div className="row w-100 m-0 pb-5">
+             <div className="row w-100 m-0 pb-5" style={{marginTop: 10}}>
              <div className="text-white row ml-1 mb-1 mt-5">
                <div className="col-12 ">Walking or wheelchair use</div>
              </div>
@@ -375,7 +371,6 @@ import { connect } from "react-redux";
                  />
                  </button>
                </div>
-               <div className="col-6">
                  <button
                    className={this.state.walkingType === "wheelchair"?"btn btn-language-setting btn-confirm-text mx-auto btn-block btn-default font-weight-bold h2":"btn btn-language-dark btn-cancel-text mx-auto btn-block btn-default font-weight-bold h2"}
                   //  className="btn btn-language-dark btn-cancel-text mx-auto btn-block btn-default font-weight-bold h2"
@@ -396,7 +391,6 @@ import { connect } from "react-redux";
                  </button>
                </div>
              </div>
-           </div>
          );
      }
 }

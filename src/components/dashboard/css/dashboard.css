@@ -613,3 +613,7 @@ margin-top: 50px;
     background: #16171C;
     border-radius: 8px;
   }
+  .rbt-input-main {
+    margin-top: 10px;
+    width: 40vw;
+  }

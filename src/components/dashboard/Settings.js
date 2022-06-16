@@ -2,7 +2,7 @@ import React from 'react';
  class Settings extends React.Component{
      render(){
          return (
-           <div className="bg-settings container-fluid" style={{height:"100vh"}}>
+           <div className="bg-settings container-fluid" style={{height:"100vh", overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center', background: '#111'}}>
              <div className="text-white row mt-5 pt-2">
                <div className="col-lg-12 ">
                  <div className="text-center" id="content">

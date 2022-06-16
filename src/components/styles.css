@@ -227,3 +227,46 @@ line-height: 24px;
 	.img-ml-37{
 		margin-left: 37%;
 	}
+
+	.container {
+		border: 2px solid #36e0c2;
+		border-radius: 8px;
+		width: 40vw;
+		padding: 0 0 20px 0;
+	}
+	@media (max-width: 1000px) {
+		.container {
+			width: 90vw
+		}
+	  }
+	  @media (max-height: 870px) {
+		.btn {
+			font-size: medium;
+			height: 40px
+		}
+		.btn:hover {
+			font-size: medium;
+			height: 40px
+		}
+		
+	  }
+	  @media (max-height: 777px) {
+		.btn {
+			font-size: medium;
+			height: 40px;
+			margin-top: 0;
+		}
+		.btn:hover {
+			font-size: medium;
+			height: 40px
+		}
+		.text-input {
+			font-size: small;
+		}
+		
+	  }
+	  @media (max-height: 668px) {
+		.form-group {
+			margin-bottom: 0.2rem;
+		}
+	  }

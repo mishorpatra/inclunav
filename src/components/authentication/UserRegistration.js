@@ -4,6 +4,7 @@ import { userRegister, sendOtp, verifyOtp,sendEmailotp,verifyEmailotp } from "..
 import "../styles.css";
 import { verify } from "crypto";
 import { connect } from "react-redux";
+import Radium, { StyleRoot } from 'radium'
 
 class UserRegistration extends React.Component {
   constructor(props) {
@@ -198,8 +199,14 @@ class UserRegistration extends React.Component {
       emailOtpValue
     } = this.state;
     console.log("regerr",this.state.regErr)
+    const container = {
+     
+    }
     return (
-      <div style={{height:"100%"}}>
+      <div style={{
+          height:"100vh",
+          overflow: 'hidden'
+        }}>
         <nav className="navbar navbar-expand-lg nav-bg text-white fixed-top" >
                   <button
                     className="navbar-toggler"
@@ -213,8 +220,13 @@ class UserRegistration extends React.Component {
                   </button>
           <div className="mx-auto"> SIGNUP </div>
         </nav>
-        <div className="bg-landing  container-fluid  h-100" style={{marginTop:"50px"}}>
-          <div className="text-white row  mx-auto w-100">
+        <div className="bg-landing  container-fluid  h-100" style={{
+            marginTop:"50px",
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}>
+          <div className="text-white row  mx-auto container">
             <div className="col-lg-12 mt-3">
               <div className="text-center  pl-3 pr-3" id="content">
                 <div className="form-group">
@@ -247,7 +259,7 @@ class UserRegistration extends React.Component {
                   />
                 </div>
                 <button
-                    className="btn btn-language  mx-auto btn-block btn-default btn-lg font-weight-bold mt-4 h2 mb-2"
+                    className="btn btn-language  mx-auto btn-block btn-default btn-lg font-weight-bold h2 mb-2"
                     onClick={()=>{
                       this.props.sendEmailotp({email:this.state.email},()=>{
                         this.setState({
@@ -339,7 +351,7 @@ class UserRegistration extends React.Component {
                   />
                 </div>
                 <button
-                    className="btn btn-language  mx-auto btn-block btn-default btn-lg font-weight-bold mt-4 h2 mb-2"
+                    className="btn btn-language  mx-auto btn-block btn-default btn-lg font-weight-bold h2 mb-2"
                     onClick={this.sendOtpRequest}
                     disabled={this.state.disableMobileOtp}
                   >
@@ -503,7 +515,7 @@ class UserRegistration extends React.Component {
                     Passwords do not match.
                   </p>:null}
                     <button
-                  className="btn btn-language  mx-auto btn-block btn-default btn-lg font-weight-bold mt-4 h2"
+                  className="btn btn-language  mx-auto btn-block btn-default btn-lg font-weight-bold h2"
                   onClick={this.requestSignup}
                   disabled={this.state.regErr}
                 >

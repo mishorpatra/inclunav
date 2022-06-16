@@ -23,8 +23,8 @@ export default function ResetPassword(props) {
  */
 useEffect(() => {
   let url = window.location.href;
-  let token = url.split("?")[1].split("&&")[0];
-  let id = url.split("?")[1].split("&&")[1];
+  let token = url.split("?")[1].split("&")[0];
+  let id = url.split("?")[1].split("&")[1];
   if (!getDetails) {
     dispatch(userDetails({ id, token }));
   }

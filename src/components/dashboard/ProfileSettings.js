@@ -832,9 +832,9 @@ import userInformation from '../../store/reducers/userInformation';
         emailOtpValue
       } = this.state;
          return (
-           <div className="bg-settings container-fluid" style={{height:this.state.click?"100%":"100vh"}}>
+           <div className="bg-settings container-fluid" style={{height:"100vh", overflow: 'hidden', background: '#111'}}>
              <div className="text-white row mt-5">
-               <div className="col-lg-12 text-center">
+               <div className={`col-lg-12 text-center`} style={{marginTop: 20}}>
                      <img
                        className="mt-1"
                        src="/inclunav/assets/images/user_profile_inverted.svg"
