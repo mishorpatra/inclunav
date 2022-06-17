@@ -270,3 +270,7 @@ line-height: 24px;
 			margin-bottom: 0.2rem;
 		}
 	  }
+	  .btn-secoondary {
+		
+		display: none;
+	  }

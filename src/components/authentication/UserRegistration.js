@@ -5,10 +5,16 @@ import "../styles.css";
 import { verify } from "crypto";
 import { connect } from "react-redux";
 import Radium, { StyleRoot } from 'radium'
+import { Link } from 'react-router-dom'
 
 class UserRegistration extends React.Component {
   constructor(props) {
     super(props);
+    let token = localStorage.getItem("token");
+    console.log(token)
+    if (token) {
+      this.props.history.push("/global-view");
+    }
     this.state = {
       name: "",
       mobileNumber: "",
@@ -521,6 +527,12 @@ class UserRegistration extends React.Component {
                 >
                   SignUp
                 </button>
+              <Link to="/login" style={{color: 'inherit'}}><p style={{
+                color: '#fff',
+                fontSize: 'medium',
+                cursor: 'pointer'
+              }}>
+              Back to Sign in!</p></Link>
               </div>
             </div>
           </div>

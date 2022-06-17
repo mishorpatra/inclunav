@@ -3,6 +3,7 @@ import Modal from "react-modal";
 import { Link } from "react-router-dom";
 import config from "../../../config";
 import { connect } from "react-redux";
+import { Logout } from '@material-ui/icons'
 import {
   floorList,
   imgDetails,
@@ -241,6 +242,12 @@ var myStyle_background = {
 class GlobalView extends React.Component {
   constructor(props) {
     super(props);
+    let token = localStorage.getItem("token");
+    //console.log(token)
+    if (!token) {
+      this.props.history.push("/login");
+    }
+    
     this.state = {
       venueList: [],
       open : true,
@@ -334,10 +341,11 @@ class GlobalView extends React.Component {
     this.srcFlrInstructions = [];
     this.dstFlrInstructions = [];
   }
-
+  
 
   mod() {
 
+   
 
     return (
       <div>
@@ -491,7 +499,7 @@ class GlobalView extends React.Component {
   getVenueList = (coordinates = null) => {
     this.props.venueList(() => {
       this.setState({
-        venueList: this.props.vnList.data
+        venueList: this.props.vnList?.data
       });
     });
   };
@@ -2828,8 +2836,17 @@ class GlobalView extends React.Component {
             class="btn-group-vertical glbl-hm-btn mr-2"
             role="group"
             aria-label="First group"
+            style={{
+              position: 'fixed',
+              top: '18%',
+              right: '2%',
+              width: 'max-content',
+              display: 'flex',
+              flexDirection: 'column'
+            }}
           >
             <button
+              title="Navigate"
               type="button"
               class="btn btn-secondary"
               onClick={() => {
@@ -2837,6 +2854,18 @@ class GlobalView extends React.Component {
               }}
             >
               <i className="fa fa-home" />
+            </button>
+            <button 
+              title="Logout"
+              type="button" 
+              className="btn btn-secondary"
+              onClick={() => {
+                localStorage.clear();
+                this.props.history.push("/login")
+              }}
+              
+            >
+              <i className="fa fa-sign-out" color="#fff"></i>
             </button>
           </div>
           <MapContainer

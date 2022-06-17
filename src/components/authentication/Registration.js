@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import '../styles.css';
 
 export default function Registration(props) {
+  
+    
+  
 
   return (
     <div className="landing-height">

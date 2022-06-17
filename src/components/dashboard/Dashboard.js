@@ -131,7 +131,11 @@ class Dashboard extends React.Component {
             <div className="col-8 text-center my-auto">{content}</div>
             <div className="col-2 text-center">
               <button
-                className="navbar-toggler"
+              style={{
+                background: 'inherit',
+                border: 'inherit',
+                marginTop: 8
+              }}
                 type="button"
                 aria-label="Go to Settings Page"
                 onClick={() => {

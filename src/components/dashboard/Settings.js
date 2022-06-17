@@ -42,9 +42,9 @@ import React from 'react';
                     <div
                        onClick={() => {
                         localStorage.clear();
-                       this.props.history.push('/')
+                       this.props.history.push('/login')
                       }}
-                    > Logout </div> 
+                    > <p style={{cursor: 'pointer', fontSize: 'medium'}}> Logout</p> </div> 
                    {/* </button> */}
 
                  </div>

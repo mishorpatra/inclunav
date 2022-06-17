@@ -20,13 +20,13 @@ class UserLogin extends React.Component {
  * @author Pankaj Singh
  * @description  Initial Rendering
  */
-  /*componentDidMount() {
+  componentDidMount() {
     let token = localStorage.getItem("token");
     console.log(token)
     if (token) {
       this.props.history.push("/global-view");
     }
-  }*/
+  }
 /**
  * @id N1.1.2
  * @author Pankaj Singh
@@ -203,6 +203,7 @@ class UserLogin extends React.Component {
                     className="forgot-pass mx-auto mt-4 mb-4 h-0"
                     aria-hidden="true"
                     aria-label="Go to forgot password page"
+                    style={{color: 'inherit'}}
                   >
                     Forgot Password
                   </Link>
@@ -222,6 +223,7 @@ class UserLogin extends React.Component {
                   to="/contact"
                   className="forgot-pass mx-auto mt-4 mb-4 h-0"
                   aria-hidden="true"
+                  style={{color: 'inherit'}}
                 >
                   Customer Support
                 </Link>
