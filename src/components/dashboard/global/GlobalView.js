@@ -3,7 +3,7 @@ import Modal from "react-modal";
 import { Link } from "react-router-dom";
 import config from "../../../config";
 import { connect } from "react-redux";
-import { Logout } from '@material-ui/icons'
+import { Logout, ThreeSixty } from '@material-ui/icons'
 import {
   floorList,
   imgDetails,
@@ -215,6 +215,22 @@ let doticon = L.divIcon({
   iconAnchor: [15, 42],
   popupAnchor: [0, -30]
 });
+
+let sourceIcon = L.divIcon({
+  className: "custom-div-icon",
+  html: "<div style='background-color:#4b85bb;' class='marker-pin'></div><i class='fa fa-location-arrow awesome'>",
+  iconSize: [30, 42],
+  iconAnchor: [15, 42],
+  popupAnchor: [0, -30]
+})
+
+let destinationIcon = L.divIcon({
+  className: "custom-div-icon",
+  html: "<div style='background-color:#4b85bb;' class='marker-pin'></div><i class='fa fa-map-pin awesome'>",
+  iconSize: [30, 42],
+  iconAnchor: [15, 42],
+  popupAnchor: [0, -30]
+})
 
 var myStyle = {
   //Style to display the non-walkable linestrings
@@ -3270,16 +3286,57 @@ class GlobalView extends React.Component {
             {this.state.showpath &&
               this.state.pathgeoJSON.features &&
               this.state.pathgeoJSON.features.map((position, idx) => {
+               if(idx == 0) { 
                 return (
                   <Marker
                     position={[
                       position.geometry.coordinates[0],
                       position.geometry.coordinates[1]
                     ]}
-                    icon={doticon}
+                    icon={sourceIcon}
                   ></Marker>
-                );
+                )};
+                if(idx == this.state.pathgeoJSON.features.length-1) return (
+                  <Marker
+                    position={[
+                      position.geometry.coordinates[0],
+                      position.geometry.coordinates[1]
+                    ]}
+                    icon={destinationIcon}
+                  ></Marker>
+                )
+                
               })}
+              
+              {this.state.showpath &&
+              this.state.pathgeoJSON.features &&
+              this.state.pathgeoJSON.features.map((position, idx) => {
+
+              return (
+              <Marker 
+                position={[
+                  position.geometry.coordinates[0],
+                  position.geometry.coordinates[1]
+                ]}
+                icon={doticon}
+                ></Marker>
+             )
+              })}
+              {this.state.showpath &&
+              this.state.pathgeoJSON.features &&
+              this.state.pathgeoJSON.features.map((position, idx) => {
+
+              return (
+              <Marker 
+                position={[
+                  position.geometry.coordinates[0]-0.000005,
+                  position.geometry.coordinates[1]-0.00001
+                ]}
+                icon={doticon}
+                ></Marker>
+             )
+              })}
+
           </MapContainer>
           <BottomBar
             srcName={this.state.srcName}
