@@ -44,7 +44,10 @@ import React from 'react';
                         localStorage.clear();
                        this.props.history.push('/login')
                       }}
-                    > <p style={{cursor: 'pointer', fontSize: 'medium'}}> Logout</p> </div> 
+                      style={{display: 'flex', justifyContent: 'center', alignItems: 'center', cursor: 'pointer', width: 'max-content', margin: '0 auto'}}
+                    > <p style={{fontSize: 'medium'}}> Logout</p>
+                      <i className="fa fa-sign-out" color="#fff" style={{marginBottom: 13, marginLeft: 10, fontSize: 'large'}}></i>
+                       </div> 
                    {/* </button> */}
 
                  </div>

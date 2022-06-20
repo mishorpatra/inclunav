@@ -35,6 +35,7 @@ const BaseRouter = ()=>{
             <Route exact path="/konva" component={ColoredRect}/>
             <Route exact path="/inclusive" component={Dashboard}/>
             <Route exact path="/global-view" component={Dashboard}/>
+            <Route exact path="/multi-floor" component={Dashboard} />
     </div>)
 }
 

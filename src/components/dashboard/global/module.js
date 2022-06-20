@@ -8,12 +8,12 @@
  */
 export const getHaversineDistance = (firstLocation, secondLocation) => {
   const earthRadius = 6371; // km //6378137; //m
-  const diffLat = ((secondLocation.lat - firstLocation.lat) * Math.PI) / 180;
-  const difflon = ((secondLocation.lon - firstLocation.lon) * Math.PI) / 180;
+  const diffLat = ((secondLocation?.lat - firstLocation?.lat) * Math.PI) / 180;
+  const difflon = ((secondLocation?.lon - firstLocation?.lon) * Math.PI) / 180;
   // console.log("difflat,difflon",diffLat,difflon,firstLocation, secondLocation)
   const arc =
-    Math.cos((firstLocation.lat * Math.PI) / 180) *
-      Math.cos((secondLocation.lat * Math.PI) / 180) *
+    Math.cos((firstLocation?.lat * Math.PI) / 180) *
+      Math.cos((secondLocation?.lat * Math.PI) / 180) *
       Math.sin(difflon / 2) *
       Math.sin(difflon / 2) +
     Math.sin(diffLat / 2) * Math.sin(diffLat / 2);
@@ -34,10 +34,10 @@ export const obtaincoordinates = (reference, vertical, horizontal) => {
   const R = 6378137; //Earth’s radius, sphere
   //Coordinate offsets in radians
   var dLat = vertical / R;
-  var dLon = horizontal / (R * Math.cos((Math.PI * reference.lat) / 180));
+  var dLon = horizontal / (R * Math.cos((Math.PI * reference?.lat) / 180));
   //OffsetPosition, decimal degrees
-  var latA = reference.lat + (dLat * 180) / Math.PI;
-  var lonA = reference.lon + (dLon * 180) / Math.PI;
+  var latA = reference?.lat + (dLat * 180) / Math.PI;
+  var lonA = reference?.lon + (dLon * 180) / Math.PI;
   return { lat: latA, lon: lonA };
 };
 /**

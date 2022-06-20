@@ -534,8 +534,8 @@ class GlobalView extends React.Component {
           selectNavigation:true
         },
         () => {
-          let lat = this.state.buildingList[0].lat;
-          let lng = this.state.buildingList[0].lng;
+          let lat = this.state.buildingList[0]?.lat;
+          let lng = this.state.buildingList[0]?.lng;
           const map = this.leafletMap.leafletElement;
           let bldList = this.state.buildingList;
           var globalRef = [];
@@ -723,7 +723,7 @@ class GlobalView extends React.Component {
     //evaluating high_lon
     var c1 = least_lat === 3 ? 0 : least_lat + 1;
     var c2 = least_lat === 0 ? 3 : least_lat - 1;
-    var high_lon = coords[c1].lon > coords[c2].lon ? c1 : c2;
+    var high_lon = coords[c1]?.lon > coords[c2]?.lon ? c1 : c2;
     ///lengths between given 4 global co-ordinates
     var lengths = [];
     this.betweenLength(coords,lengths)  
@@ -874,21 +874,21 @@ class GlobalView extends React.Component {
         this.grids_all=[];
         // this.createGraph()
         let building = this.state.dstData.buildingName;
-        let flrData =  this.state.buildingCluster.filter(r=>r.buildingName === this.state.dstData.buildingName)[0].data;
-        let polyData =  this.state.buildingPolyCluster.filter(r=>r.building === this.state.dstData.buildingName)[0].data;
-        let refPoint =  this.state.globalRefPointsList.filter(r=>r.buildingName === this.state.dstData.buildingName)[0].refPoints;
+        let flrData =  this.state.buildingCluster.filter(r=>r.buildingName === this.state.dstData.buildingName)[0]?.data;
+        let polyData =  this.state.buildingPolyCluster.filter(r=>r.building === this.state.dstData.buildingName)[0]?.data;
+        let refPoint =  this.state.globalRefPointsList.filter(r=>r.buildingName === this.state.dstData.buildingName)[0]?.refPoints;
 
       if(srcData.floor !== dstData.floor){
         this.multiFloorNav()
       }else{        
         let flrMarkData = []
-        flrData.forEach(r=>{
+        flrData?.forEach(r=>{
           if(r.floor === this.state.dstData.floor){
             flrMarkData.push(r)
           } 
         })
         let flrDataPoly = []
-        for(let k=0;k<polyData.length;k++){
+        if(polyData) for(let k=0;k<polyData.length;k++){
             if(polyData[k].floor === this.state.dstData.floor){
               flrDataPoly.push(polyData[k])
             } 
@@ -1010,25 +1010,25 @@ class GlobalView extends React.Component {
    * @description Create Coordinate hasmap
    */
   coordHashMap = (crd,coords)=>{
-    coords[0] = {
+    if(crd) coords[0] = {
       lat: parseFloat(crd[0].globalRef.lat),
       lon: parseFloat(crd[0].globalRef.lng),
       localx: parseInt(crd[0].localRef.lat),
       localy: parseInt(crd[0].localRef.lng)
     };
-    coords[1] = {
+    if(crd) coords[1] = {
       lat: parseFloat(crd[3].globalRef.lat),
       lon: parseFloat(crd[3].globalRef.lng),
       localx: parseInt(crd[3].localRef.lng),
       localy: parseInt(crd[3].localRef.lat)
     };
-    coords[2] = {
+    if(crd) coords[2] = {
       lat: parseFloat(crd[2].globalRef.lat),
       lon: parseFloat(crd[2].globalRef.lng),
       localx: parseInt(crd[2].localRef.lng),
       localy: parseInt(crd[2].localRef.lat)
     };
-    coords[3] = {
+    if(crd) coords[3] = {
       lat: parseFloat(crd[1].globalRef.lat),
       lon: parseFloat(crd[1].globalRef.lng),
       localx: parseInt(crd[1].localRef.lng),
@@ -1385,7 +1385,7 @@ class GlobalView extends React.Component {
     let flrList = []
     let flrData =  this.state.buildingCluster.filter(r=>r.buildingName === this.state.dstData.buildingName)[0].data;
     let polyData =  this.state.buildingPolyCluster.filter(r=>r.building === this.state.dstData.buildingName)[0].data;
-    let refPoint =  this.state.globalRefPointsList.filter(r=>r.buildingName === this.state.dstData.buildingName)[0].refPoints;
+    let refPoint =  this.state.globalRefPointsList.filter(r=>r.buildingName === this.state.dstData.buildingName)[0]?.refPoints;
     polyData.forEach((r)=>{
       flrList.push(r.floor)
     })  
@@ -2479,7 +2479,7 @@ class GlobalView extends React.Component {
   createcanvas( list, samefloor,refPoint) {
     if (samefloor === false) {  
       let ans = new Map();
-      for (var i = 0; i < list.length; i++) {
+      if(list) for (var i = 0; i < list.length; i++) {
         var e = list[i].split(",");
         if (ans.has(e[0])) {
           ans.get(e[0]).push(e[1]);
@@ -2739,10 +2739,10 @@ class GlobalView extends React.Component {
                   </div>
                 </div>
                 <div className="mx-auto hr-line" />
-                <div className="row w-100 mx-auto">
+                <div className="row w-100 mx-auto upper-space">
                   <div className="col-2">
                     <button
-                      className="btn btn-direction  mx-auto btn-block btn-default btn-lg font-weight-bold  h2"
+                      className="btn btn-direction  mx-auto btn-block btn-default btn-lg font-weight-bold  h2 option-path"
                       onClick={() => {
                         this.pt=0;
                         this.setNavigation();
@@ -2751,9 +2751,9 @@ class GlobalView extends React.Component {
                       Shortest
                     </button>
                   </div>
-                  <div className="col-2">
+                  <div className="col-2 option-path">
                     <button
-                      className="btn btn-direction  mx-auto btn-block btn-default btn-lg font-weight-bold  h2"
+                      className="btn btn-direction  mx-auto btn-block btn-default btn-lg font-weight-bold  h2 option-path"
                       onClick={() => {
                         this.pt=0;
                         this.setNavigation();
@@ -2763,9 +2763,9 @@ class GlobalView extends React.Component {
                     </button>
                   </div>
 
-                  <div className="col-2">
+                  <div className="col-2 option-path">
                     <button
-                      className="btn btn-direction  mx-auto btn-block btn-default btn-lg font-weight-bold  h2"
+                      className="btn btn-direction  mx-auto btn-block btn-default btn-lg font-weight-bold  h2 option-path"
                       onClick={() => {
                         this.pt=1;
                         this.setNavigation();
@@ -2775,9 +2775,9 @@ class GlobalView extends React.Component {
                     </button>
                   </div>
       
-                  <div className="col-2">
+                  <div className="col-2 option-path">
                     <button
-                      className="btn btn-direction  mx-auto btn-block btn-default btn-lg font-weight-bold  h2"
+                      className="btn btn-direction  mx-auto btn-block btn-default btn-lg font-weight-bold  h2 option-path"
                       onClick={() => {
                         this.pt=1;
                         this.setNavigation();
@@ -2838,7 +2838,7 @@ class GlobalView extends React.Component {
             aria-label="First group"
             style={{
               position: 'fixed',
-              top: '18%',
+              top: '30%',
               right: '2%',
               width: 'max-content',
               display: 'flex',
@@ -2855,18 +2855,7 @@ class GlobalView extends React.Component {
             >
               <i className="fa fa-home" />
             </button>
-            <button 
-              title="Logout"
-              type="button" 
-              className="btn btn-secondary"
-              onClick={() => {
-                localStorage.clear();
-                this.props.history.push("/login")
-              }}
-              
-            >
-              <i className="fa fa-sign-out" color="#fff"></i>
-            </button>
+            
           </div>
           <MapContainer
             style={{ height: "100vh" }}

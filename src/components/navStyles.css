@@ -78,3 +78,23 @@ input[type="text"].rbt-input-main::-webkit-input-placeholder {
     /* border-radius: .25rem !important; */
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out !important;
   }
+
+.option-path {
+  width: max-content;
+}
+ @media (max-width: 600px) {
+  .option-path {
+    font-size: medium;
+  }
+  .glbl-btn {
+    margin-top: 98% !important;
+  }
+ }
+ .upper-space {
+  margin-top: 10px;
+ }
+@media (max-width: 900px) {
+  .upper-space {
+  flex-direction: column;
+  }
+}

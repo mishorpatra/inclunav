@@ -17,6 +17,7 @@ import ProfileSettings from "./ProfileSettings";
 import NavigationSettings from "./NavigationSettings";
 import InclusiveNavigation from "./navigation/InclusiveNavigation";
 import GlobalView from "./global/GlobalView";
+import MultiFloor from "./global/MultiFloor";
 
 const routes = [
   {
@@ -46,6 +47,10 @@ const routes = [
   {
     path: "/global-view",
     component: GlobalView
+  },
+  {
+    path: "/multi-floor",
+    component: MultiFloor
   }
 ];
 
