@@ -61,7 +61,7 @@ const customStyles = {
  */
 
 var special = ['base2','base1','ground','first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh', 'eighth', 'ninth', 'tenth', 'eleventh', 'twelvth', 'thirteenth', 'fourteenth', 'fifteenth', 'sixteenth', 'seventeenth', 'eighteenth', 'nineteenth'];
-
+var fullPath = []
 // import {Graph} from "./Graph";
 class Graph { 
   // defining vertex array and 
@@ -226,7 +226,7 @@ let sourceIcon = L.divIcon({
 
 let destinationIcon = L.divIcon({
   className: "custom-div-icon",
-  html: "<div style='background-color:#4b85bb;' class='marker-pin'></div><i class='fa fa-map-pin awesome'>",
+  html: "<div style='background-color:#4b85bb;' class='marker-pin'></div><i  class='fa fa-map-pin awesome'>",
   iconSize: [30, 42],
   iconAnchor: [15, 42],
   popupAnchor: [0, -30]
@@ -275,6 +275,7 @@ class GlobalView extends React.Component {
       pathgeoJSON: [],
       geoJSONPoly: [],
       showpath: false,
+      fullPath: [],
       landmark: [],
       landMarks:[],
       polygons:[],
@@ -2589,6 +2590,8 @@ class GlobalView extends React.Component {
       cnt++;
     }
   }
+
+  
   render() {
     let srtdFlr = [];
 
@@ -2600,6 +2603,19 @@ class GlobalView extends React.Component {
                   } 
                 })
               })
+    function getPathAverage(paths, current, prev, i) {
+      if(i>5) return
+      var averageX = (current[0]+prev[0])/2
+      var averageY = (current[1]+prev[1])/2
+
+      var arr = [averageX, averageY]
+      //console.log("current", current, "average", arr, "previous", prev)
+      //if(current[0] == arr[0] && current[1] == arr[1]) return 
+      paths.push(arr)
+
+      getPathAverage(paths, current, arr, i+1)
+      getPathAverage(paths, arr, prev, i+1)
+    }
     return (
       <React.Fragment>
         {/*Instruction Component */}
@@ -3282,8 +3298,36 @@ class GlobalView extends React.Component {
                 </Marker>
               </React.Fragment>
             ) : null} */}
+              
+              
+              {this.state.showpath &&
+              this.state.pathgeoJSON.features &&
+              this.state.pathgeoJSON.features.map((position, idx) => {
 
-            {this.state.showpath &&
+                if(idx > 0) {
+                  var paths = []
+                  getPathAverage(paths, position.geometry.coordinates, this.state.pathgeoJSON.features[idx-1].geometry.coordinates, 0)
+                  paths.map(path => {
+                    fullPath.push(path)
+                  })
+                }
+              })}
+             
+              {
+                fullPath &&
+                fullPath.map(path => {
+                  return (
+                    <Marker 
+                      position={[
+                        path[0],
+                        path[1]
+                      ]}
+                      icon={doticon}
+                      ></Marker>
+                  )
+                })
+              }
+              {this.state.showpath &&
               this.state.pathgeoJSON.features &&
               this.state.pathgeoJSON.features.map((position, idx) => {
                if(idx == 0) { 
@@ -3299,42 +3343,13 @@ class GlobalView extends React.Component {
                 if(idx == this.state.pathgeoJSON.features.length-1) return (
                   <Marker
                     position={[
-                      position.geometry.coordinates[0],
-                      position.geometry.coordinates[1]
+                      position.geometry.coordinates[0]+0.000001,
+                      position.geometry.coordinates[1]+0.000001
                     ]}
                     icon={destinationIcon}
                   ></Marker>
                 )
                 
-              })}
-              
-              {this.state.showpath &&
-              this.state.pathgeoJSON.features &&
-              this.state.pathgeoJSON.features.map((position, idx) => {
-
-              return (
-              <Marker 
-                position={[
-                  position.geometry.coordinates[0],
-                  position.geometry.coordinates[1]
-                ]}
-                icon={doticon}
-                ></Marker>
-             )
-              })}
-              {this.state.showpath &&
-              this.state.pathgeoJSON.features &&
-              this.state.pathgeoJSON.features.map((position, idx) => {
-
-              return (
-              <Marker 
-                position={[
-                  position.geometry.coordinates[0]-0.000005,
-                  position.geometry.coordinates[1]-0.00001
-                ]}
-                icon={doticon}
-                ></Marker>
-             )
               })}
 
           </MapContainer>
